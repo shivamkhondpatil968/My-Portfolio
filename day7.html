@@ -1,0 +1,135 @@
+
+<html >
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Day 7 - To Do List</title>
+
+<style>
+body {
+    font-family: Arial;
+    background:
+        
+        url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSKWneQVXPZtdRMmyUoFe5OpP0-CeiKXIEmA&s');
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Container */
+.todo-container {
+    background: rgba(215, 102, 185, 0.911);
+    padding: 25px;
+    border-radius: 12px;
+    width: 350px;
+    text-align: center;
+}
+
+/* Input */
+input {
+    width: 70%;
+    padding: 10px;
+    border: none;
+    outline: none;
+}
+
+/* Button */
+button {
+    padding: 10px;
+    background: #00adb5;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+/* List */
+ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+/* Task */
+li {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    margin-top: 8px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 5px;
+}
+
+/* Completed */
+.completed {
+    text-decoration: line-through;
+    color: gray;
+}
+</style>
+</head>
+
+<body>
+
+<div class="todo-container">
+    <h2>To-Do List</h2>
+
+    <input type="text" id="taskInput" placeholder="Enter task">
+    <button onclick="addTask()">Add</button>
+
+    <ul id="taskList"></ul>
+</div>
+
+<script>
+let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+
+function showTasks() {
+    let list = document.getElementById("taskList");
+    list.innerHTML = "";
+
+    tasks.forEach((task, index) => {
+        let li = document.createElement("li");
+
+        li.innerHTML = `
+            <span onclick="toggleTask(${index})" class="${task.done ? 'completed' : ''}">
+                ${task.text}
+            </span>
+            <button onclick="deleteTask(${index})">❌</button>
+        `;
+
+        list.appendChild(li);
+    });
+
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+}
+
+function addTask() {
+    let input = document.getElementById("taskInput");
+
+    if (input.value === "") return;
+
+    tasks.push({ text: input.value, done: false });
+    input.value = "";
+
+    showTasks();
+}
+
+function deleteTask(index) {
+    tasks.splice(index, 1);
+    showTasks();
+}
+
+function toggleTask(index) {
+    tasks[index].done = !tasks[index].done;
+    showTasks();
+}
+
+showTasks();
+</script>
+
+</body>
+</html>

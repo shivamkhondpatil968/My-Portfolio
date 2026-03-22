@@ -1,0 +1,80 @@
+<html >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 6 - Basic JavaScript</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background: linear-gradient(135deg, #000, #1a1a1a);
+            color: white;
+            text-align: center;
+            padding: 50px;
+        }
+
+        .container {
+            background: rgba(255,255,255,0.05);
+            padding: 30px;
+            border-radius: 12px;
+            max-width: 500px;
+            margin: auto;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 10px;
+            background: #00adb5;
+            border: none;
+            color: white;
+            cursor: pointer;
+        }
+
+        input {
+            padding: 10px;
+            margin-top: 10px;
+            width: 80%;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    
+
+  
+    
+    
+
+    <!-- Variable Example -->
+    <h3>Enter Your Name</h3>
+    <input type="text" id="nameInput" placeholder="Enter name">
+    <button onclick="showName()">Show Name</button>
+
+    <p id="output"></p>
+</div>
+
+<script>
+    // Console example
+    function showConsole() {
+        console.log("Hello, this is my first JavaScript console output!");
+        console.log("Learning variables, functions, and DOM.");
+        alert("Check the console (Right click → Inspect → Console)");
+    }
+
+    // Variable + function example
+    function showName() {
+        let name = document.getElementById("nameInput").value;
+
+        if(name === "") {
+            alert("Please enter your name");
+            return;
+        }
+
+        document.getElementById("output").innerText = "Hello " + name;
+    }
+</script>
+
+</body>
+</html>
