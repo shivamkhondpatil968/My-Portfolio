@@ -1,0 +1,43 @@
+add
+var p = 4.52;
+var q=5.52;
+var sum =p+q;
+console.log(sum);
+sub
+var p = 5.5;
+var q=2.9 ;
+var sub =p-q;
+console.log(sub);
+div 
+var p = 9;
+var q=5;
+var div =p/q;
+console.log(div);
+multi
+var p = 0.00005;
+var q=5;
+var mul =p*q;
+console.log(mul);
+modulus 
+var p = 9;
+var q=5;
+var div =p%q;
+console.log(div);
+var result = "hello"/2;
+console.log(result);
+var result = "28"/2;
+console.log(result);
+var result = "true"/2;
+console.log(result);
+console.log(6=="hello")
+console.log(6!=="hello")
+console.log(6==6)
+console.log(6===5)
+console.log(6==!6)
+console.log(6>5)
+console.log(6==5)
+console.log(6>"hello")
+console.log(6>=5)
+console.log(6==8)
+function greet()
+console.log("welcome to js");
