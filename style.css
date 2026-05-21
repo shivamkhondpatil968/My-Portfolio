@@ -738,7 +738,12 @@ footer {
     gap: 25px;
     margin-top: 40px;
 }
-
+.day-container-1 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 55px;
+    margin-top: 40px;
+}
 /* Card */
 .day-card {
     background: rgba(255,255,255,0.05);
@@ -746,6 +751,8 @@ footer {
     border-radius: 12px;
     transition: 0.3s;
 }
+
+    
 
 /* Hover */
 .day-card:hover {
